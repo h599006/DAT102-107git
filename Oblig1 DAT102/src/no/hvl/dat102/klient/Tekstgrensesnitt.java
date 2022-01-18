@@ -34,7 +34,8 @@ public class Tekstgrensesnitt {
 	                                                           String delstreng) { 
 		 Film[] filmer = filma.soekTittel(delstreng);
 		 for (int i  = 0; i < filmer.length; i++) {
-			 System.out.println(filmer[i]);  
+			 visFilm(filmer[i]);
+			 System.out.println("************");
 		 }
 	 } 
 	 
@@ -42,7 +43,8 @@ public class Tekstgrensesnitt {
 	 public void skrivUtFilmProdusent(FilmarkivADT filma, String delstreng) { 
 		 Film[] filmer = filma.soekProdusent(delstreng);
 		 for (int i  = 0; i < filmer.length; i++) {
-			 System.out.println(filmer[i]);  
+			 visFilm(filmer[i]);  
+			 System.out.println("************");
 		 }
 	 } 
 	 
