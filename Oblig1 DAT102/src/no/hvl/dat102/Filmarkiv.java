@@ -12,7 +12,7 @@ public class Filmarkiv implements FilmarkivADT {
 		filmtab = new Film[lengde];
 		antall = 0;
 	}
-	
+	/*
 	public void visFilm(int filmnr) {
 		boolean filmFunnet = false;
 		for (int i = 0; i < antall; i++) {
@@ -24,6 +24,16 @@ public class Filmarkiv implements FilmarkivADT {
 		if (filmFunnet == false) {
 			System.out.println("Nummeret finnes ikke");
 		}
+		
+	} */
+	
+	public Film finnFilm(int filmnr) {
+		for (int i = 0; i < antall; i++) {
+			if(filmtab[i].getFilmnr() == filmnr) {
+				return filmtab[i];
+			}
+		}
+		return null;
 		
 	}
 
@@ -64,7 +74,7 @@ public class Filmarkiv implements FilmarkivADT {
 		
 		for (int i = 0; i < antall; i++) {
 			if (filmtab[i].getTittel().contains(delstreng)) {
-				inneholder[i] = filmtab[i];
+				inneholder[antallEl] = filmtab[i];
 				antallEl++;
 			}
 		}
@@ -78,7 +88,7 @@ public class Filmarkiv implements FilmarkivADT {
 		
 		for (int i = 0; i < antall; i++) {
 			if (filmtab[i].getFilmselskap().contains(delstreng)) {
-				inneholder[i] = filmtab[i];
+				inneholder[antallEl] = filmtab[i];
 				antallEl++;
 			}
 		}

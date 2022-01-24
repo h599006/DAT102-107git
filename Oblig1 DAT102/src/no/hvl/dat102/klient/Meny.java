@@ -15,11 +15,13 @@ public class Meny {
 	 public void start(){ 
 		 Film nyFilm1 = new Film(1, "David Heyman", "Harry Potter og de vises stein", 2001, Sjanger.FANTASY, "Warner Bros");
 		 Film nyFilm2 = new Film(2, "David Heyman", "Harry Potter og mysterikammeret", 2002, Sjanger.FANTASY, "Warner Bros");
+		 Film nyFilm3 = new Film(3, "David Heyman", "Harry Potter og fangen fra Azkaban", 2004, Sjanger.FANTASY, "Warner Bros");
 		 filmarkiv.leggTilFilm(nyFilm1);
 		 filmarkiv.leggTilFilm(nyFilm2);
+		 filmarkiv.leggTilFilm(nyFilm3);
 		 
-		 Film bruker = tekstgr.lesFilm();
-		 filmarkiv.leggTilFilm(bruker);
+		 int brukerFilmNr = tekstgr.lesFilm();
+		 Film bruker = filmarkiv.finnFilm(brukerFilmNr);
 		 tekstgr.visFilm(bruker);
 		 
 		 System.out.println("---------");

@@ -6,21 +6,28 @@ import javax.swing.JOptionPane;
 
 public class Tekstgrensesnitt {
 	// lese opplysningene om en FILM fra tastatur  
-	 public Film lesFilm(){ 
+	 public int lesFilm(){ //Film
+		 /*
 		 int filmnr = Integer.parseInt(JOptionPane.showInputDialog("Filmnr: "));
 		 String navn = JOptionPane.showInputDialog("Navn: ");
 		 String tittel = JOptionPane.showInputDialog("Tittel: ");
 		 int aar = Integer.parseInt(JOptionPane.showInputDialog("År: "));
 		 String s = JOptionPane.showInputDialog("Sjanger: ");
 		 Sjanger sjanger = Sjanger.valueOf(s);
-		 String filmselskap = JOptionPane.showInputDialog("Filmselskap: ");
-		 
-		 return new Film(filmnr, navn, tittel, aar, sjanger, filmselskap);
+		 String filmselskap = JOptionPane.showInputDialog("Filmselskap: "); 
+		 return new Film(filmnr, navn, tittel, aar, sjanger, filmselskap);*/
+		
+		
+		 int filmNrBruker = Integer.parseInt(JOptionPane.showInputDialog("Filmnr: "));
+		 return filmNrBruker;
 		 
 	 } 
 	 
 	 // vise en film med alle opplysninger på skjerm (husk tekst for sjanger) 
 	 public void visFilm(Film film) { 
+		 if (film == null) {
+			 System.out.println("Filmen finnes ikke");
+		 }
 		 System.out.println("Filmnr: " + film.getFilmnr());
 		 System.out.println("Navn: " + film.getNavn());
 		 System.out.println("Tittel: " + film.getTittel());

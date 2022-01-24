@@ -9,7 +9,7 @@ public interface FilmarkivADT {
 	  * @param nr nummer på film som skal vises. Om nummeret ikke finnes, 
 	  * skrives en feilmelding. 
 	  */ 
-	 void visFilm(int nr); 
+	// void visFilm(int nr); 
 	 
 	 /** 
 	  * Legger til en ny film. 
@@ -50,6 +50,13 @@ public interface FilmarkivADT {
 	  * @return antall filmer i arkivet 
 	  */ 
 	 int antall(); 
+	 
+	 /**
+	  * Hente en film med gitt nr fra arkivet
+	  * @param nr nummer på film som skal hentes
+	  * @return film med gitt nr. Om nr ikke finnes, returneres null
+	  */
+	 Film finnFilm(int nr);
 	 
 
 }
