@@ -1,0 +1,21 @@
+drop table if exists bil; 
+drop table if exists bompenger;
+
+create table bil 
+(
+	regnr	char(7) UNIQUE,
+	eier	varchar(100) NOTNULL,	
+	adresse	varchar(100) NOTNULL,
+	epost	varchar(100) UNIQUE,
+	tlfnr	int(8) UNIQUE,
+	FOREIGN KEY (regnr)
+	REFERENCES bompengebod (regnr)
+);
+
+create table bompengebod 
+(
+	regnr	char(7) UNIQUE,
+	tid		timestamp NOTNULL,
+	bompengebod	varchar(100) NOTNULL,
+	PRIMARY KEY (regnr)
+);
