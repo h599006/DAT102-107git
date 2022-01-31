@@ -1,14 +1,6 @@
 --a)
-drop table if exists bil; 
+drop table if exists bil cascade; 
 drop table if exists bomtab;
-
-create table bomtab 
-(
-	Regnr	char(7) UNIQUE,
-	Tid		timestamp NOT NULL,
-	Bompengebod	varchar(100) NOT NULL,
-	PRIMARY KEY (regnr)
-); 
 
 create table bil 
 (
@@ -17,20 +9,35 @@ create table bil
 	Adresse	varchar(100) NOT NULL,
 	Epost	varchar(100) UNIQUE,
 	Tlfnr	int UNIQUE,
-	CONSTRAINT fk_regnr FOREIGN KEY (regnr)
-	REFERENCES bomtab (regnr)
+	PRIMARY KEY (regnr)
 );
 
-INSERT INTO bomtab (regnr, tid, bompengebod) VALUES
-('HP12345', '2020-02-01 12:02:34', 'Bergen'),
-('', '2010-06-20 08:01:56', 'Oslo'),
---('', '2010-06-26 17:07:49', 'Trondheim'),
-('AA10000', '2019-06-20 08:01:56', 'Oslo'),
-('HS98765', '2010-08-27 13:15:49', 'Lillehammer');
+create table bomtab 
+(
+	Passering	int UNIQUE,
+	Regnr	char(7),
+	Tid		timestamp NOT NULL,
+	Bompengebod	varchar(100) NOT NULL,
+	PRIMARY KEY (Passering),
+	CONSTRAINT fk_regnr FOREIGN KEY (regnr) 
+	REFERENCES bil (Regnr)
+	
+); 
 
 INSERT INTO bil (regnr, eier, adresse, epost, tlfnr) VALUES
 ('HP12345', 'Hans Hansen', 'Bergsensveien 7', 'hans.hansen@gmail.com', 12345678),
-('HS98765', 'Ole Olsen', 'Sigrids Undsetsvei 10', 'ole.olesen@hotmail.no', 98765432);
+('HS98765', 'Ole Olsen', 'Sigrids Undsetsvei 10', 'ole.olesen@hotmail.no', 98765432),
+('AA10000' , 'Petra Person', 'Løbergssvingen 27', 'petra.person@gmail.com', 19283476);
+
+INSERT INTO bomtab (Passering, regnr, tid, bompengebod) VALUES
+(1, 'HP12345', '2020-02-01 12:02:34', 'Bergen'),
+(2, null, '2010-06-20 08:01:56', 'Oslo'),
+(3, null, '2010-06-26 17:07:49', 'Trondheim'),
+(4, 'AA10000', '2019-06-20 08:01:56', 'Oslo'),
+(5, 'HS98765', '2010-08-27 13:15:49', 'Lillehammer'),
+(6, 'AA10000', '2021-11-15 21:49:15', 'Oslo'); 
+
+
 
 --b)
 select bomtab.regnr, eier, adresse, epost, tlfnr, tid, bompengebod FROM bil 
@@ -48,5 +55,4 @@ select regnr, count(*) as AntallPasseringer from bomtab group by regnr;
 select max(tid) from bomtab where regnr = 'AA10000';
 
 --g)
-select regnr, count(*) as AntallPasseringer from bomtab where regnr = '' group by regnr; 
---Funka ikke med IS NULL, så brukte = ''
+select regnr, count(*) as AntallPasseringer from bomtab where regnr is null group by regnr;  
