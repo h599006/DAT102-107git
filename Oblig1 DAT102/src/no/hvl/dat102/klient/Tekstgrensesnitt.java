@@ -11,7 +11,7 @@ public class Tekstgrensesnitt {
 		 int filmnr = Integer.parseInt(JOptionPane.showInputDialog("Filmnr: "));
 		 String navn = JOptionPane.showInputDialog("Navn: ");
 		 String tittel = JOptionPane.showInputDialog("Tittel: ");
-		 int aar = Integer.parseInt(JOptionPane.showInputDialog("År: "));
+		 int aar = Integer.parseInt(JOptionPane.showInputDialog("Ã…r: "));
 		 String s = JOptionPane.showInputDialog("Sjanger: ");
 		 Sjanger sjanger = Sjanger.valueOf(s);
 		 String filmselskap = JOptionPane.showInputDialog("Filmselskap: "); 
@@ -23,15 +23,16 @@ public class Tekstgrensesnitt {
 		 
 	 } 
 	 
-	 // vise en film med alle opplysninger på skjerm (husk tekst for sjanger) 
+	 // vise en film med alle opplysninger pÃ¥ skjerm (husk tekst for sjanger) 
 	 public void visFilm(Film film) { 
 		 if (film == null) {
 			 System.out.println("Filmen finnes ikke");
+			 return;
 		 }
 		 System.out.println("Filmnr: " + film.getFilmnr());
 		 System.out.println("Navn: " + film.getNavn());
 		 System.out.println("Tittel: " + film.getTittel());
-		 System.out.println("År: " + film.getAar());
+		 System.out.println("Ã…r: " + film.getAar());
 		 System.out.println("Sjanger: " + film.getSjanger().toString());
 		 System.out.println("Filmselskap: " + film.getFilmselskap());
 	 } 
@@ -42,7 +43,9 @@ public class Tekstgrensesnitt {
 		 Film[] filmer = filma.soekTittel(delstreng);
 		 for (int i  = 0; i < filmer.length; i++) {
 			 visFilm(filmer[i]);
-			 System.out.println("************");
+			 if (i != filmer.length - 1) {
+				 System.out.println("************");
+			 }
 		 }
 	 } 
 	 
@@ -51,7 +54,9 @@ public class Tekstgrensesnitt {
 		 Film[] filmer = filma.soekProdusent(delstreng);
 		 for (int i  = 0; i < filmer.length; i++) {
 			 visFilm(filmer[i]);  
-			 System.out.println("************");
+			 if (i != filmer.length - 1) {
+				 System.out.println("************");
+			 }
 		 }
 	 } 
 	 
