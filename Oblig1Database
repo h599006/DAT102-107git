@@ -49,10 +49,10 @@ select * from bomtab, bil where bomtab.regnr = bil.regnr;
 --d) Se ipad notater
 
 --e)
-select regnr, count(*) as AntallPasseringer from bomtab group by regnr;
+select regnr, count(*) as AntallPasseringer from bomtab where regnr is not null group by regnr;
 
 --f)
 select max(tid) from bomtab where regnr = 'AA10000';
 
 --g)
-select regnr, count(*) as AntallPasseringer from bomtab where regnr is null group by regnr;  
+select regnr, count(*) as AntallPasseringer from bomtab where regnr is null group by regnr;
