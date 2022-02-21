@@ -21,7 +21,7 @@ public class RekursjonMain {
 		
 		//d)
 		for (int i = 0; i <= 10; i++) {
-			System.out.println(Rekursjon.fibonacciUtenRekursjon(i));
+			System.out.println(Rekursjon.fibonacciUtenRekursjon(i) + " ");
 		}
 		System.out.println("--------------------");
 		
