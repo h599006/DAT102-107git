@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Random tilfeldig = new Random(); 
-		int n = 32; 
+		int n = 32000; 
 		int antall = 10; 
 		 
 		Integer[][] a = new Integer[antall][n]; 
@@ -17,7 +17,7 @@ public class Main {
 		// sett inn tilfeldige heltall i alle rekker 
 		for (int i = 0; i < antall; i++){ 
 			for (int j = 0; j < n; j++){ 
-				a[i][j] = tilfeldig.nextInt(10); 
+				a[i][j] = tilfeldig.nextInt(); 
 			} 
 		} 
 		 
@@ -33,13 +33,13 @@ public class Main {
 		System.out.println("Millisekunder: " + tid);
 		System.out.println("Sekunder: " + tid/1000);
 		
-		
+		/*
 		for (int i = 0;  i < a.length; i++) {
 			for (Integer e : a[i]) {
 				System.out.print(e + " ");
 			}
 			System.out.println();
-		}  
+		}  */
 	}
 
 }
