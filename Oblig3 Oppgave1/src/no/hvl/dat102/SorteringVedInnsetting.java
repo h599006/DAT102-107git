@@ -39,6 +39,7 @@ public class SorteringVedInnsetting {
 			if (i + 1 < slutt) {
 				i--;
 			}
+			
 			if (temp.compareTo(temp2) < 0) {
 				T midlertidig = temp2;
 				temp2 = temp;
@@ -53,6 +54,7 @@ public class SorteringVedInnsetting {
 					break;
 				}	
 			}
+			a[j + 2] = temp;
 			
 			while (j >= 0) { 
 				if (temp2.compareTo(a[j]) < 0) {
@@ -62,7 +64,7 @@ public class SorteringVedInnsetting {
 					break;
 				}
 			}
-			a[j + 1] = temp;
+			a[j + 1] = temp2;
 			
 		} 
 		
