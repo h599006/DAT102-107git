@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Random tilfeldig = new Random(); 
-		int n = 10; 
+		int n = 32; 
 		int antall = 10; 
 		 
 		Integer[][] a = new Integer[antall][n]; 

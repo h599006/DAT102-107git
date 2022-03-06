@@ -32,18 +32,19 @@ public class SorteringVedInnsetting {
 	public static <T extends Comparable<? super T>> void sorteringVedInssettingToTall(T[] a, int start, int slutt) {
 	
 		for (int i = start + 1; i < slutt; i+=2) {
-			T temp = a[i];
-			T temp2 = a[i + 1];
-			int j = i - 1;
 			
 			if (i + 1 < slutt) {
 				i--;
 			}
 			
+			T temp = a[i];
+			T temp2 = a[i + 1];
+			int j = i - 1;
+			
+			
 			if (temp.compareTo(temp2) < 0) {
-				T midlertidig = temp2;
-				temp2 = temp;
-				temp = midlertidig;
+				temp = a[i + 1];
+				temp2 = a[i];
 			} 
 			
 			while (j >= 0) { 
